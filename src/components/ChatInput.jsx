@@ -1,5 +1,6 @@
 import { useState} from 'react'
 import {Chatbot} from 'supersimpledev'
+import dayjs from 'dayjs';
 
 export function ChatInput({chatMessages, setChatMessages}){
     const [inputMsg, setInputMsg] = useState('');
@@ -16,13 +17,15 @@ export function ChatInput({chatMessages, setChatMessages}){
             setInputMsg('');
         }
     }
-
+    const time = dayjs().valueOf();
+    let currentTime = dayjs(time).format('h:mma');
     async function sendMessage(){
         const newMessage = [
             ...chatMessages,
             {
                 message:inputMsg,
                 sender:"user",
+                time: currentTime,
                 id:crypto.randomUUID()
             }
         ]
@@ -42,6 +45,7 @@ export function ChatInput({chatMessages, setChatMessages}){
             {
                 message:response,
                 sender:"robot",
+                time: currentTime,
                 id:crypto.randomUUID()
             }
         ])

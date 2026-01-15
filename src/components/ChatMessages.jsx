@@ -1,5 +1,7 @@
 import {useRef, useEffect } from 'react'
 import { ChatMsg } from './ChatMsg';
+
+
 export function ChatMessages({chatMessages}){
     const chatMessageRef = useRef(null);
     useEffect(()=>{
@@ -13,7 +15,7 @@ export function ChatMessages({chatMessages}){
         <div className="chatMessage" ref={chatMessageRef}>
             {chatMessages.map((item)=>{
                 return (
-                    <ChatMsg  message={item.message} sender={item.sender} key={item.id} ></ChatMsg>  
+                    <ChatMsg message={item.message} sender={item.sender} time={item.time} key={item.id} ></ChatMsg>  
                 )
             })}
             {chatMessages.length === 0 && <div className="welcomeMsg">

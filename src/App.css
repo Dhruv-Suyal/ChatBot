@@ -39,12 +39,18 @@
 }
 .MsgText{
     background-color: rgb(238, 238, 238);
-    display: flex;
     padding: 15px 20px;
     border-radius: 10px;
     margin-right: 10px;
     margin-left: 10px;
     max-width: 300px;
+}
+.msgTime{
+  font-size: 13px;
+  color: rgb(120, 117, 117);
+  padding: 0px;
+  margin: 0px;
+  margin-top: 7px;
 }
 .messageImage{
     width: 45px;
